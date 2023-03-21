@@ -1,226 +1,175 @@
 
-document.body.onload = addElement;
+const calculator = document.querySelector('.calculator');
 
-function addElement() {
-  // create a new div element
-    const divContainer = document.createElement("div");
-    divContainer.className = "container";
-    const screen = document.createElement("input");
-    screen.setAttribute =("type","text");
-    screen.classList ="typing-input";
-    const newDiv = document.createElement("div")
-    newDiv.className = "div1"
-    const newDiv2 = document.createElement("div")
-    newDiv2.className = "div2"
-    const newDiv3 = document.createElement("div")
-    newDiv3.className = "div3"
-    const newDiv4 = document.createElement("div")
-    newDiv4.className = "div4"
-    const newDiv5 = document.createElement("div");
-    newDiv5.className = "div5"
-  // Création de button
-    const newBttn = document.createElement("button");
+// l'ecran de la calculatrice
+const screen = document.createElement('div');
+screen.classList.add('ecran');
+calculator.appendChild(screen)
 
-;
-    
-    
-    function CreateNewButton() {
+// les touches de la calculatrice
+const touch = document.createElement('div');
+touch.classList.add('touches');
+calculator.appendChild(touch)
 
-        for (let i = 0; i < 4; i++) {
-            const newBttn = document.createElement("button");
-            newBttn.classList = "bttn"
-            newDiv.appendChild(newBttn);
-    
+// ALL TOUCHES
+const clear = document.createElement('button');
+clear.classList.add('bouton')
+clear.innerText = 'C';
+touch.appendChild(clear);
+clear.setAttribute("data-key", "8");
+
+const parentleft = document.createElement('button');
+parentleft.classList.add('bouton')
+parentleft.innerText = '(';
+touch.appendChild(parentleft);
+parentleft.setAttribute("data-key", "53");
+
+const parentright = document.createElement('button');
+parentright.classList.add('bouton')
+parentright.innerText = ')';
+touch.appendChild(parentright);
+parentright.setAttribute("data-key", "219");
+
+const divide = document.createElement('button');
+divide.classList.add('bouton')
+divide.innerText = '/';
+touch.appendChild(divide);
+divide.setAttribute("data-key", "111");
+
+const seven = document.createElement('button');
+seven.classList.add('bouton')
+seven.innerText = '7';
+touch.appendChild(seven);
+seven.setAttribute("data-key", "103");
+
+const height = document.createElement('button');
+height.classList.add('bouton')
+height.innerText = '8';
+touch.appendChild(height);
+height.setAttribute("data-key", "104");
+
+const nine = document.createElement('button');
+nine.classList.add('bouton')
+nine.innerText = '9';
+touch.appendChild(nine);
+nine.setAttribute("data-key", "105");
+
+const multiply = document.createElement('button');
+multiply.classList.add('bouton')
+multiply.innerText = '*';
+touch.appendChild(multiply);
+multiply.setAttribute("data-key", "106");
+
+const four = document.createElement('button');
+four.classList.add('bouton')
+four.innerText = '4';
+touch.appendChild(four);
+four.setAttribute("data-key", "100");
+
+const five = document.createElement('button');
+five.classList.add('bouton')
+five.innerText = '5';
+touch.appendChild(five);
+five.setAttribute("data-key", "101");
+
+const six = document.createElement('button');
+six.classList.add('bouton')
+six.innerText = '6';
+touch.appendChild(six);
+six.setAttribute("data-key", "102");
+
+const minus = document.createElement('button');
+minus.classList.add('bouton')
+minus.innerText = '-';
+touch.appendChild(minus);
+minus.setAttribute("data-key", "109");
+
+const one = document.createElement('button');
+one.classList.add('bouton')
+one.innerText = '1';
+touch.appendChild(one);
+one.setAttribute("data-key", "97");
+
+const deux = document.createElement('button');
+deux.classList.add('bouton')
+deux.innerText = '2';
+touch.appendChild(deux);
+deux.setAttribute("data-key", "98");
+
+const trois = document.createElement('button');
+trois.classList.add('bouton')
+trois.innerText = '3';
+touch.appendChild(trois);
+trois.setAttribute("data-key", "99");
+
+const plus = document.createElement('button');
+plus.classList.add('bouton')
+plus.innerText = '+';
+touch.appendChild(plus);
+plus.setAttribute("data-key", "107");
+
+const zero = document.createElement('button');
+zero.classList.add('bouton')
+zero.innerText = '0';
+touch.appendChild(zero);
+zero.setAttribute("data-key", "96");
+
+const point = document.createElement('button');
+point.classList.add('bouton')
+point.innerText = '.';
+touch.appendChild(point);
+point.setAttribute("data-key", "110");
+
+const history = document.createElement('button');
+history.classList.add('bouton')
+history.innerText = "H";
+touch.appendChild(history);
+history.dataset.key;
+
+const equal = document.createElement('button');
+equal.classList.add('bouton')
+equal.innerText = "=";
+touch.appendChild(equal);
+equal.setAttribute("data-key", "13");
+
+// DOM
+const touches = [...document.querySelectorAll('.bouton')];
+const listeKeycode = touches.map(touche => touche.dataset.key);
+// const ecran = document.querySelector('.ecran');
+
+document.addEventListener('keydown', (e) => {
+    const valeur = e.keyCode.toString();
+    calculer(valeur)
+
+})
+
+document.addEventListener('click', (e) => {
+    const valeur = e.target.dataset.key;
+    calculer(valeur)
+
+})
+
+const calculer = (valeur) => {
+    if (listeKeycode.includes(valeur)) {
+        switch (valeur) {
+            case '8':
+                screen.textContent = "";
+                break;
+            case '13':
+                const calcul = eval(screen.textContent);
+                screen.textContent = calcul;
+                break;
+            default:
+                const indexKeycode = listeKeycode.indexOf(valeur);
+                const touche = touches[indexKeycode];
+                screen.textContent += touche.innerHTML;
         }
-
-        for (let i = 0; i < 4; i++) {
-            const newBttn = document.createElement("button");
-            newBttn.classList = "bttn"
-            newDiv2.appendChild(newBttn);
-    
-        }
-
-        for (let i = 0; i < 4; i++) {
-            const newBttn = document.createElement("button");
-            newBttn.classList = "bttn"
-            newDiv3.appendChild(newBttn);
-    
-        }
-
-        for (let i = 0; i < 4; i++) {
-            const newBttn = document.createElement("button");
-            newBttn.classList = "bttn"
-            newDiv4.appendChild(newBttn);
-    
-        }
-
-        for (let i = 0; i < 4; i++) {
-            const newBttn = document.createElement("button");
-            newBttn.classList = "bttn"
-            newDiv5.appendChild(newBttn);
-    
-        }
-
-        
-  // add the text node to the newly created div
-    divContainer.appendChild(screen);
-    
-    divContainer.appendChild(newDiv);
-    divContainer.appendChild(newDiv2);
-    divContainer.appendChild(newDiv3);
-    divContainer.appendChild(newDiv4);
-    divContainer.appendChild(newDiv5)
-
-
     }
-    CreateNewButton()
+}
 
-    
-    
-    
-
-  // add the newly created element and its content into the DOM
-    const currentDiv = document.getElementById("div1");
-    document.body.insertBefore(divContainer, currentDiv);
-
-
-    function AllTogether() {
-
-        // Bouton 1ère rangée
-
-        let addContent = document.querySelector(".container div:nth-child(2) button:nth-child(1)");
-        // Ajouter du texte dans les boutons
-        addContent.innerHTML = "AC";
-        addContent.className="Clear"
-        addContent.setAttribute("data-key", "8");
-        addContent = document.querySelector(".div1:nth-child(2) button:nth-child(2)");
-        addContent.innerHTML = "(";
-        addContent.setAttribute("data-key", "53");
-        addContent = document.querySelector(".div1:nth-child(2) button:nth-child(3)");
-        addContent.innerHTML = ")";
-        addContent.setAttribute("data-key", "219");
-        addContent = document.querySelector(".div1:nth-child(2) button:nth-child(4)");
-        addContent.innerHTML = "/";
-        addContent.setAttribute("data-key", "111");
-
-        // Bouton 2ème rangée
-
-        addContent = document.querySelector(".div2:nth-child(3) button:nth-child(1)");
-        // Ajouter du texte dans les boutons
-        addContent.innerHTML = "7";
-        addContent.setAttribute("data-key", "103");
-        addContent = document.querySelector(".div2:nth-child(3) button:nth-child(2)");
-        addContent.innerHTML = "8";
-        addContent.setAttribute("data-key", "104");
-        addContent = document.querySelector(".div2:nth-child(3) button:nth-child(3)");
-        addContent.innerHTML = "9";
-        addContent.setAttribute("data-key", "105");
-        addContent = document.querySelector(".div2:nth-child(3) button:nth-child(4)");
-        addContent.innerHTML = "*";
-        addContent.setAttribute("data-key", "106");
-        
-         // Bouton 3ème rangée
-
-        addContent = document.querySelector(".div3:nth-child(4) button:nth-child(1)");
-        // Ajouter du texte dans les boutons
-        addContent.innerHTML = "4";
-        addContent.setAttribute("data-key", "100");
-        addContent = document.querySelector(".div3:nth-child(4) button:nth-child(2)");
-        addContent.innerHTML = "5";
-        addContent.setAttribute("data-key", "101");
-        addContent = document.querySelector(".div3:nth-child(4) button:nth-child(3)");
-        addContent.innerHTML = "6";
-        addContent.setAttribute("data-key", "102");
-        addContent = document.querySelector(".div3:nth-child(4) button:nth-child(4)");
-        addContent.innerHTML = "-";
-        addContent.setAttribute("data-key", "109");
-
-           // Bouton 4ème rangée
-        addContent = document.querySelector(".div4:nth-child(5) button:nth-child(1)");
-        // Ajouter du texte dans les boutons
-        addContent.innerHTML = "1";
-        addContent.setAttribute("data-key", "97");
-        addContent = document.querySelector(".div4:nth-child(5) button:nth-child(2)");
-        addContent.innerHTML = "2";
-        addContent.setAttribute("data-key", "98");
-        addContent = document.querySelector(".div4:nth-child(5) button:nth-child(3)");
-        addContent.innerHTML = "3";
-        addContent.setAttribute("data-key", "99");
-        addContent = document.querySelector(".div4:nth-child(5) button:nth-child(4)");
-        addContent.innerHTML = "+";
-        addContent.setAttribute("data-key", "107");
-
-         // Bouton 5ème rangée
-        addContent = document.querySelector(".div5:nth-child(6) button:nth-child(1)");
-        // Ajouter du texte dans les boutons
-        addContent.innerHTML = "0";
-        addContent.setAttribute("data-key", "96");
-        addContent = document.querySelector(".div5:nth-child(6) button:nth-child(2)");
-        addContent.innerHTML = ".";
-        addContent.setAttribute("data-key", "110");
-        addContent = document.querySelector(".div5:nth-child(6) button:nth-child(3)");
-        addContent.innerHTML = "H";
-        addContent.setAttribute("data-key", "72");
-        addContent = document.querySelector(".div5:nth-child(6) button:nth-child(4)");
-        addContent.innerHTML = "=";
-        addContent.setAttribute("data-key", "13");
-        addContent.className="Equal";
-        console.log(addContent);
-    }
-
-    AllTogether()
-
-
-// Permettre d'afficher des nombres
-    function addToInput(event){
-        let button = event.target;
-        alert(button.innerHTML) 
-        let element = document.getElementsByClassName('typing-input');
-        // element.value = element.value + button.innerHTML; 
-        element.value = element.value + button.innerHTML
-        alert(element.value);
-    }
-        
-    let buttons = document.querySelectorAll('.bttn');
-    for (const element of buttons)
-    {
-        element.addEventListener('click', addToInput);
-    }
-
-    //Permettre d'effacer les Nombres
-    const button = document.querySelector('.Clear');
-    button.onclick = function() {
-        document.querySelector("#typing-input").value = "";
-    }
-    
-    //Permet de calculer toutes les chaines de caractères dans l'input
-    const result = document.querySelector('.equal-btn');
-    result.onclick = function showResult(){
-    let input = document.getElementById("typing-input");
-    let contenu = input.value;
-    let result = eval(contenu);
-    let div = document.getElementById("result-div");
-    div.innerHTML = result;
-    }
-    //Nombre négatif
-    const negativity = document.querySelector(".negativy");
-    negativity.onclick = function opposite(){
-    if( document.getElementById("typing-input").value > 0) {
-        document.getElementById("typing-input").value = -document.getElementById("typing-input").value;
-    }
-    else{
-    document.getElementById("typing-input").value =  "+" +    (document.getElementById("typing-input").value)
-    }
-    console.log("Ok")
-    }
-
-
-
-
-    }
-
-
-    
+window.addEventListener('error', (e) => {
+    alert('Une erreur est survenue dans votre calcul : ' + e.message)
+})
 
 
 
