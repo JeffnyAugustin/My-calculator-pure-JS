@@ -1,141 +1,212 @@
+// container contenant titre + la calculatrice
 
-const calculator = document.querySelector('.calculator');
+const hugeTitle = document.createElement("div");
+hugeTitle.id = "myTitle";
 
-// l'ecran de la calculatrice
-const screen = document.createElement('div');
-screen.classList.add('ecran');
-calculator.appendChild(screen)
+const title = document.createElement("h1");
+title.id = "titre";
+title.textContent = "My Calculator";
 
-// les touches de la calculatrice
-const touch = document.createElement('div');
-touch.classList.add('touches');
-calculator.appendChild(touch)
+// container va contenir tous mes élements
 
-// ALL TOUCHES
+const divContain = document.getElementById("container");
+
+// Création div ecran 
+
+const ecran = document.createElement("div");
+ecran.id = "screen";
+
+// Création div qui va contenir tous mes boutons
+const touches = document.createElement("div");
+touches.id = "touches";
+
+
+// Création rangée 1 
+
+const rangee1 = document.createElement("div");
+rangee1.id = "row1";
+
+
+// Bouton Clear
 const clear = document.createElement('button');
-clear.classList.add('bouton')
-clear.innerText = 'C';
-touch.appendChild(clear);
+clear.id = 'clear';
+clear.className = 'bouton';
+clear.textContent = 'C';
 clear.setAttribute("data-key", "8");
 
+// Bouton parenthèse gauche
 const parentleft = document.createElement('button');
-parentleft.classList.add('bouton')
-parentleft.innerText = '(';
-touch.appendChild(parentleft);
+parentleft.id = 'parentleft';
+parentleft.className = 'bouton';
+parentleft.textContent = '(';
 parentleft.setAttribute("data-key", "53");
 
+// Bouton parenthèse droite
 const parentright = document.createElement('button');
-parentright.classList.add('bouton')
-parentright.innerText = ')';
-touch.appendChild(parentright);
+parentright.id = 'parentright';
+parentright.className = 'bouton';
+parentright.textContent = ')';
 parentright.setAttribute("data-key", "219");
 
+// Bouton division
 const divide = document.createElement('button');
-divide.classList.add('bouton')
-divide.innerText = '/';
-touch.appendChild(divide);
+divide.id = 'divide';
+divide.className = 'bouton';
+divide.textContent = '/';
 divide.setAttribute("data-key", "111");
 
+
+// Création rangée 2 
+
+const rangee2 = document.createElement("div");
+rangee2.id = "row2";
+
+// Bouton 7
 const seven = document.createElement('button');
-seven.classList.add('bouton')
-seven.innerText = '7';
-touch.appendChild(seven);
+seven.id = 'seven';
+seven.className = 'bouton';
+seven.textContent = '7';
 seven.setAttribute("data-key", "103");
 
+// Bouton 8
 const height = document.createElement('button');
-height.classList.add('bouton')
-height.innerText = '8';
-touch.appendChild(height);
+height.id = 'height';
+height.className = 'bouton';
+height.textContent = '8';
 height.setAttribute("data-key", "104");
 
+// Bouton 9
 const nine = document.createElement('button');
-nine.classList.add('bouton')
-nine.innerText = '9';
-touch.appendChild(nine);
+nine.id = 'nine';
+nine.className = 'bouton';
+nine.textContent = '9';
 nine.setAttribute("data-key", "105");
 
+// Bouton multiplication
 const multiply = document.createElement('button');
-multiply.classList.add('bouton')
-multiply.innerText = '*';
-touch.appendChild(multiply);
+multiply.id = 'multiply';
+multiply.className = 'bouton';
+multiply.textContent = 'x';
 multiply.setAttribute("data-key", "106");
 
+// Création rangée 3 
+
+const rangee3 = document.createElement("div");
+rangee3.id = "row3";
+
+// Bouton 4
 const four = document.createElement('button');
-four.classList.add('bouton')
-four.innerText = '4';
-touch.appendChild(four);
+four.id = 'four';
+four.className = 'bouton';
+four.textContent = '4';
 four.setAttribute("data-key", "100");
 
+// Bouton 5
 const five = document.createElement('button');
-five.classList.add('bouton')
-five.innerText = '5';
-touch.appendChild(five);
-five.setAttribute("data-key", "101");
+five.id = 'five';
+five.className = 'bouton';
+five.textContent = '5';
+five.setAttribute("data-key", "101");;
 
+// Bouton 6
 const six = document.createElement('button');
-six.classList.add('bouton')
-six.innerText = '6';
-touch.appendChild(six);
+six.id = 'six';
+six.className = 'bouton';
+six.textContent = '6';
 six.setAttribute("data-key", "102");
 
+// Bouton multiplication
 const minus = document.createElement('button');
-minus.classList.add('bouton')
-minus.innerText = '-';
-touch.appendChild(minus);
+minus.id = 'minus';
+minus.className = 'bouton';
+minus.textContent = '-';
 minus.setAttribute("data-key", "109");
 
+// Création rangée 4 
+
+const rangee4 = document.createElement("div");
+rangee4.id = "row4";
+
+// Bouton 1
 const one = document.createElement('button');
-one.classList.add('bouton')
-one.innerText = '1';
-touch.appendChild(one);
+one.id = 'one';
+one.className = 'bouton';
+one.textContent = '1';
 one.setAttribute("data-key", "97");
 
-const deux = document.createElement('button');
-deux.classList.add('bouton')
-deux.innerText = '2';
-touch.appendChild(deux);
-deux.setAttribute("data-key", "98");
+// Bouton 2
+const two = document.createElement('button');
+two.id = 'two';
+two.className = 'bouton';
+two.textContent = '2';
+two.setAttribute("data-key", "98");
 
-const trois = document.createElement('button');
-trois.classList.add('bouton')
-trois.innerText = '3';
-touch.appendChild(trois);
-trois.setAttribute("data-key", "99");
+// Bouton 3
+const three = document.createElement('button');
+three.id = 'three';
+three.className = 'bouton';
+three.textContent = '3';
+three.setAttribute("data-key", "99");
 
+// Bouton +
 const plus = document.createElement('button');
-plus.classList.add('bouton')
-plus.innerText = '+';
-touch.appendChild(plus);
+plus.id = 'plus';
+plus.className = 'bouton';
+plus.textContent = '+';
 plus.setAttribute("data-key", "107");
 
+
+
+// Création rangée 5
+
+const rangee5 = document.createElement("div");
+rangee5.id = "row5";
+
+// Bouton 0
 const zero = document.createElement('button');
-zero.classList.add('bouton')
-zero.innerText = '0';
-touch.appendChild(zero);
+zero.id = 'one';
+zero.className = 'bouton';
+zero.textContent = '0';
 zero.setAttribute("data-key", "96");
 
+// Bouton .
 const point = document.createElement('button');
-point.classList.add('bouton')
-point.innerText = '.';
-touch.appendChild(point);
+point.id = 'two';
+point.className = 'bouton';
+point.textContent = '.';
 point.setAttribute("data-key", "110");
 
+// Bouton history
 const history = document.createElement('button');
-history.classList.add('bouton')
-history.innerText = "H";
-touch.appendChild(history);
-history.dataset.key;
+history.id = 'history';
+history.className = 'bouton';
+history.textContent = 'H';
+// history.dataset.key;
 
+// Bouton equal
 const equal = document.createElement('button');
-equal.classList.add('bouton')
-equal.innerText = "=";
-touch.appendChild(equal);
+equal.id = 'equal';
+equal.className = 'bouton';
+equal.textContent = '=';
 equal.setAttribute("data-key", "13");
 
-// DOM
-const touches = [...document.querySelectorAll('.bouton')];
-const listeKeycode = touches.map(touche => touche.dataset.key);
-// const ecran = document.querySelector('.ecran');
+
+hugeTitle.append(title, divContain)
+divContain.append(ecran, touches);
+touches.append(rangee1, rangee2, rangee3, rangee4, rangee5);
+rangee1.append(clear, parentleft, parentright, divide);
+rangee2.append(seven, height, nine, multiply);
+rangee3.append(four, five, six, minus);
+rangee4.append(one, two, three, plus);
+rangee5.append(zero, point, history, equal);
+document.body.append(hugeTitle);
+
+
+
+// Récuperer les valeurs au click ou à l'appui sur une touche
+const touche = [...document.querySelectorAll('.bouton')]
+const listeKeycode = touche.map(touches => touches.dataset.key);
+
 
 document.addEventListener('keydown', (e) => {
     const valeur = e.keyCode.toString();
@@ -153,23 +224,26 @@ const calculer = (valeur) => {
     if (listeKeycode.includes(valeur)) {
         switch (valeur) {
             case '8':
-                screen.textContent = "";
+                ecran.textContent = "";
                 break;
             case '13':
-                const calcul = eval(screen.textContent);
-                screen.textContent = calcul;
+                const calcul = eval(ecran.textContent);
+                ecran.textContent = calcul;
                 break;
             default:
                 const indexKeycode = listeKeycode.indexOf(valeur);
-                const touche = touches[indexKeycode];
-                screen.textContent += touche.innerHTML;
+                const touches = touche[indexKeycode];
+                ecran.textContent += touches.innerHTML;
         }
     }
 }
 
 window.addEventListener('error', (e) => {
     alert('Une erreur est survenue dans votre calcul : ' + e.message)
-})
+}) 
+
+
+
 
 
 
