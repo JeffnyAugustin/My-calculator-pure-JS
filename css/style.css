@@ -33,7 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 429px;
-  height: 561px;
+    height: 561px;
     border-radius: 50px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #bebebe,
@@ -65,7 +65,7 @@ body {
 
 
 #touches {
-  display: flex;
+    display: flex;
     height: 43vh;
     width: 43vw;
     /* background-color: red; */
@@ -117,8 +117,8 @@ button {
 }
 
 button:active {
-      color: #666;
-      box-shadow: inset 4px 4px 12px #c5c5c5,
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
                 inset -4px -4px 12px #ffffff;
 }
 
